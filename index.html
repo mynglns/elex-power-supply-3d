@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive 3D model of the ELEX power supply circuit board." />
+    <meta name="theme-color" content="#808080" />
+    <title>ELEX Power Supply / 3D Model</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main id="viewerShell" aria-label="Interactive 3D model viewer">
+      <div id="viewer" aria-label="Interactive 3D circuit board model"></div>
+
+      <h1 class="title">Power Supply</h1>
+      <nav class="views" aria-label="Model">
+        <button class="view is-active" type="button" data-model="power-supply">PCB</button>
+        <button class="view" type="button" data-model="power-supply-breadboard">Breadboard</button>
+      </nav>
+
+      <div class="loading-state" id="loadingState" role="status" aria-live="polite">
+        <span class="loader" aria-hidden="true"></span>
+        <span id="loadingLabel">Loading model…</span>
+      </div>
+
+      <button class="control-button" id="resetView" type="button" aria-label="Reset camera view">
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M3.2 8.5a5.6 5.6 0 1 0 1.4-3.7" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M3.2 3.8v3.5h3.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Reset</span>
+      </button>
+
+      <p class="hint">Drag to orbit · scroll to zoom</p>
+    </main>
+
+    <noscript>This 3D model viewer needs JavaScript enabled.</noscript>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
